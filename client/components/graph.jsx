@@ -13,18 +13,22 @@ class Graph extends React.Component {
     return (
       <div className='graph'>
         <p>Crypto Graph</p>
+
         <VictoryChart
           theme={VictoryTheme.material}
         >
           <VictoryAxis
-            tickCount = {3}
+            tickCount={3}
           />
+          <VictoryAxis dependentAxis />
           <VictoryLine
             style={{
               data: { stroke: "#c43a31" },
-              parent: { border: "1px solid #ccc" }
+              parent: { border: "1px solid #ccc" },
+              labels: { angle: -90, fill: "red", fontSize: 20 }
             }}
             data={this.props.prices}
+            style={{ data: { stroke: "gold", strokeWidth: 5 } }}
           />
         </VictoryChart>
       </div>
