@@ -20,7 +20,9 @@ class Graph extends React.Component {
           <VictoryAxis
             tickCount={3}
           />
-          <VictoryAxis dependentAxis />
+          <VictoryAxis dependentAxis
+            // style={{ tickLabels: { angle: -60 } }}
+          />
           <VictoryLine
             style={{
               data: { stroke: "#c43a31" },
