@@ -1,0 +1,27 @@
+html,
+body {
+  background-color: rgba(122, 175, 199, 0.733);
+  font-family: 'Robato', Arial, Helvetica, sans-serif;
+  font-weight: 200;
+  color: rgb(15, 21, 24);
+  height: 100%;
+  width: 100%;
+}
+
+h1 {
+  margin-top: 10px;
+  font-family: 'Abril Fatface', cursive;
+  font-style: italic;
+  font-size: 80px;
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.graphContainer {
+  height: 75%;
+  width: 75%;
+}
