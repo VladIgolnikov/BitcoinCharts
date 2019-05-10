@@ -13,6 +13,7 @@ class App extends React.Component {
       endDate: '2019-04-30',
       prices: []
     };
+    this.fetchPrices = this.fetchPrices.bind(this)
   }
 
   componentDidMount() {

@@ -8,9 +8,11 @@ module.exports = {
     let endDate = req.params.endDate;
     getAPI(startDate, endDate)
       .then(({ data }) => {
+        let dataArr = [];
         let dataObjs = data.bpi;
-        // console.log('API DATA: ', dataObjs)
+        console.log('API DATA: ', dataObjs)
         for (let day in dataObjs) {
+          dataArr.push({ [day]: dataObjs[day] })
           Coin.findOneAndUpdate(
             {
               date: day
@@ -29,7 +31,7 @@ module.exports = {
               console.error('Error adding/updating to MongoDB', err);
             })
         }
-        res.send(dataObjs)
+        res.send(dataArr)
       })
       .catch((err) => {
         console.error('Error requesting to Crypto API: ', err);
@@ -47,6 +49,6 @@ module.exports = {
         console.error('Error fetching data: ', err);
         res.send(err);
       })
-      .then(( data ) => { res.send(data) })
+      .then((data) => { res.send(data) })
   },
 }
