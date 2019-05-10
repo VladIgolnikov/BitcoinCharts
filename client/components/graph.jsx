@@ -12,16 +12,15 @@ class Graph extends React.Component {
   render() {
     return (
       <div className='graph'>
-        <p>Crypto Graph</p>
 
         <VictoryChart
           theme={VictoryTheme.material}
         >
           <VictoryAxis
             tickCount={3}
+            style={{ tickLabels: { angle: -60 } }}
           />
           <VictoryAxis dependentAxis
-            // style={{ tickLabels: { angle: -60 } }}
           />
           <VictoryLine
             style={{
