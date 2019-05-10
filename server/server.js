@@ -13,7 +13,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, '/../public')));
 
-app.use('/', Routes);
+app.use('/graph', Routes);
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);

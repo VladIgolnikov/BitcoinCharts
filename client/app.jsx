@@ -11,7 +11,7 @@ class App extends React.Component {
       coin: 'BTC',
       startDate: '2019-04-01',
       endDate: '2019-04-30',
-      prices: []
+      prices: [{x:0,y:0}, {x:1,y:1}]
     };
     this.fetchPrices = this.fetchPrices.bind(this)
   }
@@ -21,10 +21,17 @@ class App extends React.Component {
   }
 
   fetchPrices(startDate, endDate) {
-    Axios.get(`/add/${startDate}/${endDate}`)
+    Axios.get(`/graph/add\/${startDate}\/${endDate}`)
       .then(response => {
         console.log(`fetchPrices response.data --> ${response.data}`);
-        this.setState({ prices: response.data });
+        let graphArray = []
+        response.data.map((point) => {
+          let day = { x: Object.keys(point)[0], y: Object.values(point)[0] }
+          console.log(`day looks like: ${day}`)
+          graphArray.push(day);
+        })
+        this.setState({ prices: graphArray });
+        console.log('prices: ', this.state.prices)
       })
       .catch(error => console.log(`fetchPrices error --> ${error}`));
   }
